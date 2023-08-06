@@ -6,7 +6,7 @@ import { useLoginController } from "./useLoginController";
 
 export function Login() {
 
- const {handleSubmit, register, errors} = useLoginController();
+ const {handleSubmit, register, errors, isLoading} = useLoginController();
 
   return (
     <>
@@ -22,7 +22,7 @@ export function Login() {
         <Input error={errors.email?.message} {...register('email')} type="email" placeholder="E-mail"/>
         <Input error={errors.password?.message} {...register('password')} type="password" placeholder="Senha"/>
 
-        <Button type="submit" className="mt-2">
+        <Button isLoading={isLoading} type="submit" className="mt-2">
           Entrar
         </Button>
       </form>
